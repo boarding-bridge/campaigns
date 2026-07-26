@@ -60,15 +60,27 @@
   /* ---------- Buttons ---------- */
   .btn {
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 2px;
     font-family: var(--font);
     font-weight: 700;
     text-decoration: none;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .btn-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .btn-code {
+    font-weight: 600;
+    opacity: 0.72;
+    letter-spacing: 0.01em;
     white-space: nowrap;
   }
   .btn-primary {
@@ -78,15 +90,17 @@
     font-size: 16px;
     box-shadow: 0 0 24px var(--green-glow), 0 2px 0 rgba(0,0,0,0.35);
   }
+  .btn-primary .btn-code { font-size: 12px; }
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 40px rgba(124, 252, 98, 0.55), 0 4px 14px rgba(0,0,0,0.4);
   }
   .btn-primary:active { transform: translateY(0); }
   .btn-small {
-    padding: 9px 20px;
+    padding: 8px 20px;
     font-size: 13.5px;
   }
+  .btn-small .btn-code { font-size: 9.5px; }
   .btn-arrow { font-weight: 400; }
 
   /* ---------- Header ---------- */
@@ -108,7 +122,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 62px;
+    height: 70px;
     gap: 16px;
   }
   .header-logos {
@@ -631,7 +645,7 @@
     .rule-card { padding: 24px 20px; }
     .header-logos img { height: 18px; }
     .header-logos .logo-x { font-size: 11px; }
-    .btn-small { padding: 8px 14px; font-size: 12.5px; }
+    .btn-small { padding: 7px 14px; font-size: 12.5px; }
   }
   @media (max-width: 480px) {
     .overview-grid { grid-template-columns: 1fr; }
@@ -648,7 +662,10 @@
       <span class="logo-x" aria-hidden="true">×</span>
       <img class="bb-logo" src="assets/bb-logo.png" alt="boarding bridge ロゴ">
     </div>
-    <a class="btn btn-primary btn-small" href="https://app.txflow.com/r/TXJPDAO" target="_blank" rel="noopener noreferrer">参加する</a>
+    <a class="btn btn-primary btn-small" href="https://app.txflow.com/r/TXJPDAO" target="_blank" rel="noopener noreferrer">
+      <span class="btn-main">参加する</span>
+      <span class="btn-code">(手数料5%引きコード: TXJPDAO)</span>
+    </a>
   </div>
 </header>
 
@@ -683,8 +700,11 @@
       </div>
 
       <div class="hero-cta-row">
-        <a class="btn btn-primary" href="https://app.txflow.com/r/TXJPDAO" target="_blank" rel="noopener noreferrer">今すぐ参加する <span class="btn-arrow" aria-hidden="true">→</span></a>
-        <p class="hero-note">指定されたリファラルリンク経由で参加し、条件を達成すると報酬を獲得できます。</p>
+        <a class="btn btn-primary" href="https://app.txflow.com/r/TXJPDAO" target="_blank" rel="noopener noreferrer">
+          <span class="btn-main">今すぐ参加する <span class="btn-arrow" aria-hidden="true">→</span></span>
+          <span class="btn-code">(手数料5%引きコード: TXJPDAO)</span>
+        </a>
+        <p class="hero-note">コード【TXJPDAO】経由で参加し、条件を達成すると報酬を獲得！</p>
       </div>
     </div>
   </section>
@@ -858,7 +878,10 @@
       <h2 id="cta-title" class="reveal">Welcome <span class="accent">Campaign</span>に参加する</h2>
       <p class="reveal">取引タスクを達成で報酬を獲得！</p>
       <div class="reveal">
-        <a class="btn btn-primary" href="https://app.txflow.com/r/TXJPDAO" target="_blank" rel="noopener noreferrer">キャンペーンに参加する <span class="btn-arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-primary" href="https://app.txflow.com/r/TXJPDAO" target="_blank" rel="noopener noreferrer">
+          <span class="btn-main">キャンペーンに参加する <span class="btn-arrow" aria-hidden="true">→</span></span>
+          <span class="btn-code">(手数料5%引きコード: TXJPDAO)</span>
+        </a>
       </div>
     </div>
   </section>
