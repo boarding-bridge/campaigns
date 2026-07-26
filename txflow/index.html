@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TxFlow × boarding bridge Welcome Campaign</title>
+<meta name="description" content="TxFlow × boarding bridge の日本語キャンペーンLP。取引タスクを達成して、もれなく報酬を獲得。">
+<meta property="og:title" content="TxFlow × boarding bridge Welcome Campaign">
+<meta property="og:description" content="TxFlow × boarding bridge の日本語キャンペーンLP。取引タスクを達成して、もれなく報酬を獲得。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://campaign.boardingbridge.org/txflow">
+<meta property="og:image" content="https://campaign.boardingbridge.org/txflow/assets/txflow-logo.png">
+<meta property="og:site_name" content="TxFlow × boarding bridge Welcome Campaign">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/txflow-logo.png" type="image/png">
+<style>
+  :root {
+    --bg: #050705;
+    --bg-soft: #0a0d0a;
+    --card: #0d110d;
+    --card-2: #101510;
+    --line: rgba(124, 252, 98, 0.16);
+    --line-soft: rgba(255, 255, 255, 0.08);
+    --green: #7cfc62;
+    --green-dim: #56c945;
+    --green-glow: rgba(124, 252, 98, 0.35);
+    --text: #eef3ec;
+    --text-sub: #9aa89a;
+    --text-faint: #6b786b;
+    --radius: 14px;
+    --maxw: 1080px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI",
+      "Yu Gothic", Meiryo, "Noto Sans JP", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: var(--green); }
+
+  .container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #8dff74, var(--green) 55%, #4fd63d);
+    color: #06210a;
+    padding: 15px 34px;
+    font-size: 16px;
+    box-shadow: 0 0 24px var(--green-glow), 0 2px 0 rgba(0,0,0,0.35);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(124, 252, 98, 0.55), 0 4px 14px rgba(0,0,0,0.4);
+  }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-small {
+    padding: 9px 20px;
+    font-size: 13.5px;
+  }
+  .btn-arrow { font-weight: 400; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(5, 7, 5, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line-soft);
+    transition: background 0.3s ease;
+  }
+  .site-header.scrolled {
+    background: rgba(5, 7, 5, 0.9);
+    border-bottom-color: var(--line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+    gap: 16px;
+  }
+  .header-logos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .header-logos img { height: 22px; width: auto; }
+  .logo-x {
+    color: var(--text-sub);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding-top: 140px;
+    padding-bottom: 90px;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 900px 480px at 78% 10%, rgba(124, 252, 98, 0.08), transparent 65%),
+      var(--bg);
+  }
+  /* reference-poster background artwork: banknote texture + neon graphic, right-aligned */
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/background.png');
+    background-repeat: no-repeat;
+    background-position: right -4% top 50%;
+    background-size: 64% auto;
+    -webkit-mask-image: linear-gradient(115deg, transparent 22%, rgba(0,0,0,0.75) 48%, #000 68%);
+    mask-image: linear-gradient(115deg, transparent 22%, rgba(0,0,0,0.75) 48%, #000 68%);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-brand {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+  .hero-brand img { height: 30px; width: auto; }
+  .hero-brand .logo-x { font-size: 16px; }
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid var(--line);
+    background: rgba(124, 252, 98, 0.07);
+    color: var(--green);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(38px, 6.5vw, 68px);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    margin-bottom: 18px;
+  }
+  .hero h1 .accent {
+    color: var(--green);
+    text-shadow: 0 0 28px var(--green-glow);
+  }
+  .hero-lead {
+    font-size: clamp(16px, 2.4vw, 20px);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 34px;
+  }
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+  .stat-card {
+    background: rgba(13, 17, 13, 0.82);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 26px;
+    min-width: 210px;
+    flex: 0 1 auto;
+  }
+  .stat-label {
+    font-size: 12.5px;
+    color: var(--text-sub);
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .stat-value {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1.15;
+    text-shadow: 0 0 22px var(--green-glow);
+  }
+  .stat-value .unit {
+    font-size: 0.45em;
+    font-weight: 700;
+    margin-left: 4px;
+    letter-spacing: 0.05em;
+  }
+  .stat-value.plain {
+    color: var(--text);
+    text-shadow: none;
+    font-size: clamp(17px, 2.4vw, 21px);
+    font-weight: 700;
+    padding-top: 6px;
+  }
+  .hero-cta-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .hero-note {
+    font-size: 13.5px;
+    color: var(--text-sub);
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 80px 0; }
+  .section-alt { background: var(--bg-soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+  .section-head { margin-bottom: 40px; }
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    margin-bottom: 10px;
+  }
+  .section-eyebrow::before {
+    content: "";
+    width: 4px;
+    height: 16px;
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green-glow);
+  }
+  .section-title {
+    font-size: clamp(24px, 3.6vw, 34px);
+    font-weight: 800;
+    line-height: 1.3;
+  }
+  .section-sub {
+    color: var(--text-sub);
+    margin-top: 10px;
+    font-size: 15px;
+    max-width: 640px;
+  }
+
+  /* ---------- Overview cards ---------- */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .ov-card {
+    background: linear-gradient(180deg, var(--card-2), var(--card));
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    padding: 26px 22px;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .ov-card:hover {
+    border-color: var(--line);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 20px rgba(124, 252, 98, 0.08);
+  }
+  .ov-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+  }
+  .ov-title {
+    font-size: 16.5px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.45;
+  }
+  .ov-text {
+    font-size: 13.5px;
+    color: var(--text-sub);
+    line-height: 1.75;
+  }
+
+  /* ---------- Reward table ---------- */
+  .reward-wrap {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--card);
+    box-shadow: 0 0 40px rgba(124, 252, 98, 0.05);
+  }
+  table.rewards {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  table.rewards thead th {
+    text-align: left;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--green);
+    background: rgba(124, 252, 98, 0.06);
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  table.rewards tbody td {
+    padding: 20px;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: middle;
+  }
+  table.rewards tbody tr:last-child td { border-bottom: none; }
+  table.rewards tbody tr {
+    transition: background 0.2s ease;
+  }
+  table.rewards tbody tr:hover { background: rgba(124, 252, 98, 0.035); }
+  .tier-name {
+    font-weight: 800;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+  .tier-top {
+    background:
+      linear-gradient(90deg, rgba(124, 252, 98, 0.10), rgba(124, 252, 98, 0.03));
+  }
+  .tier-top td { border-bottom: 1px solid var(--line); }
+  .tier-top .tier-name { color: var(--green); }
+  .tier-top-badge {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #06210a;
+    background: var(--green);
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-left: 10px;
+    vertical-align: 2px;
+    box-shadow: 0 0 14px var(--green-glow);
+  }
+  .reward-amount {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--green);
+    white-space: nowrap;
+  }
+  .tier-top .reward-amount {
+    font-size: 30px;
+    text-shadow: 0 0 20px var(--green-glow);
+  }
+  .type-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: 6px;
+    padding: 4px 12px;
+    white-space: nowrap;
+  }
+  .type-usdc {
+    color: var(--green);
+    border: 1px solid rgba(124, 252, 98, 0.45);
+    background: rgba(124, 252, 98, 0.08);
+  }
+  .type-fc {
+    color: #c9d4c9;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .vol-num { font-weight: 700; }
+  .cell-sub { color: var(--text-sub); font-size: 13px; }
+
+  /* mobile: table -> cards */
+  @media (max-width: 720px) {
+    table.rewards, table.rewards tbody, table.rewards tr, table.rewards td { display: block; width: 100%; }
+    table.rewards thead { display: none; }
+    .reward-wrap { border: none; background: transparent; box-shadow: none; overflow: visible; }
+    table.rewards tbody tr {
+      background: var(--card);
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      margin-bottom: 14px;
+      padding: 8px 0;
+    }
+    table.rewards tbody tr.tier-top {
+      border-color: var(--line);
+      background: linear-gradient(180deg, rgba(124, 252, 98, 0.10), var(--card));
+      box-shadow: 0 0 26px rgba(124, 252, 98, 0.10);
+    }
+    table.rewards tbody td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      border-bottom: none;
+      padding: 9px 18px;
+    }
+    table.rewards tbody td::before {
+      content: attr(data-label);
+      font-size: 12px;
+      color: var(--text-sub);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+    }
+    table.rewards tbody td.td-tier {
+      border-bottom: 1px solid var(--line-soft);
+      padding-bottom: 12px;
+      margin-bottom: 4px;
+    }
+    table.rewards tbody td.td-tier::before { content: none; }
+    .tier-top td.td-tier { border-bottom-color: var(--line); }
+    .reward-amount { font-size: 26px; }
+    .tier-top .reward-amount { font-size: 32px; }
+  }
+
+  /* ---------- Fee Credits ---------- */
+  .fc-card {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+    background: linear-gradient(135deg, rgba(124, 252, 98, 0.06), var(--card) 45%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 30px 32px;
+  }
+  .fc-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: rgba(124, 252, 98, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    font-size: 22px;
+    font-weight: 800;
+    text-shadow: 0 0 14px var(--green-glow);
+  }
+  .fc-card h3 { font-size: 18px; margin-bottom: 8px; }
+  .fc-card p { color: var(--text-sub); font-size: 14.5px; }
+  .fc-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .fc-point {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--green);
+    border: 1px solid var(--line);
+    background: rgba(124, 252, 98, 0.06);
+    border-radius: 999px;
+    padding: 5px 14px;
+  }
+
+  /* ---------- Rules / Terms ---------- */
+  .rule-card {
+    background: var(--card);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    padding: 34px 36px;
+  }
+  .rule-list { list-style: none; }
+  .rule-list li {
+    position: relative;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 30px;
+    padding-right: 0;
+    font-size: 14.5px;
+    color: #cdd7cc;
+    border-bottom: 1px solid var(--line-soft);
+    line-height: 1.8;
+  }
+  .rule-list li:last-child { border-bottom: none; }
+  .rule-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 24px;
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    transform: rotate(45deg);
+    box-shadow: 0 0 8px var(--green-glow);
+  }
+  .terms .rule-list li::before {
+    background: var(--text-faint);
+    box-shadow: none;
+  }
+  .terms .rule-list li { color: var(--text-sub); font-size: 13.5px; }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta {
+    position: relative;
+    text-align: center;
+    padding: 110px 0;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 720px 380px at 50% 100%, rgba(124, 252, 98, 0.13), transparent 65%),
+      var(--bg-soft);
+    border-top: 1px solid var(--line-soft);
+  }
+  .final-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgba(124, 252, 98, 0.05) 0px,
+        rgba(124, 252, 98, 0.05) 1px,
+        transparent 1px,
+        transparent 10px
+      );
+    -webkit-mask-image: radial-gradient(ellipse at 50% 100%, #000 20%, transparent 70%);
+    mask-image: radial-gradient(ellipse at 50% 100%, #000 20%, transparent 70%);
+    pointer-events: none;
+  }
+  .final-cta .container { position: relative; z-index: 1; }
+  .final-cta h2 {
+    font-size: clamp(26px, 4.4vw, 42px);
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+  .final-cta h2 .accent { color: var(--green); text-shadow: 0 0 26px var(--green-glow); }
+  .final-cta p {
+    color: var(--text-sub);
+    font-size: 15.5px;
+    margin-bottom: 34px;
+  }
+
+  /* ---------- Footer ---------- */
+  .site-footer {
+    border-top: 1px solid var(--line-soft);
+    padding-top: 46px;
+    padding-bottom: 56px;
+    padding-left: 0;
+    padding-right: 0;
+    background: var(--bg);
+  }
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+  }
+  .footer-links a {
+    color: var(--text-sub);
+    text-decoration: none;
+    font-size: 13.5px;
+    transition: color 0.2s ease;
+  }
+  .footer-links a:hover { color: var(--green); }
+  .footer-text {
+    font-size: 13px;
+    color: var(--text-sub);
+  }
+  .footer-disclaimer {
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  /* ---------- Reveal animation ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn, .ov-card { transition: none; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1000px) {
+    .overview-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    section { padding: 60px 0; }
+    .hero { padding-top: 118px; padding-bottom: 70px; padding-left: 0; padding-right: 0; }
+    .hero::after { opacity: 0.5; background-position: right -20% top 55%; background-size: 130% auto; }
+    .hero-stats { flex-direction: column; }
+    .stat-card { width: 100%; min-width: 0; }
+    .hero-cta-row .btn-primary { width: 100%; }
+    .final-cta .btn-primary { width: 100%; max-width: 420px; }
+    .fc-card { flex-direction: column; padding: 26px 22px; }
+    .rule-card { padding: 24px 20px; }
+    .header-logos img { height: 18px; }
+    .header-logos .logo-x { font-size: 11px; }
+    .btn-small { padding: 8px 14px; font-size: 12.5px; }
+  }
+  @media (max-width: 480px) {
+    .overview-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <div class="header-logos">
+      <img src="assets/txflow-logo.png" alt="TxFlow ロゴ">
+      <span class="logo-x" aria-hidden="true">×</span>
+      <img class="bb-logo" src="assets/bb-logo.png" alt="boarding bridge ロゴ">
+    </div>
+    <a class="btn btn-primary btn-small" href="https://app.txflow.com/r/TXJPDAO" target="_blank" rel="noopener noreferrer">参加する</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-inner">
+      <div class="hero-brand">
+        <img src="assets/txflow-logo.png" alt="TxFlow ロゴ">
+        <span class="logo-x" aria-hidden="true">×</span>
+        <img class="bb-logo" src="assets/bb-logo.png" alt="boarding bridge ロゴ">
+      </div>
+
+      <p class="hero-badge">TxFlow × boarding bridge</p>
+      <h1 id="hero-title">Welcome <span class="accent">Campaign</span></h1>
+      <p class="hero-lead">取引タスクを達成で報酬を獲得！</p>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <p class="stat-label">1ユーザーあたり最大報酬</p>
+          <p class="stat-value">300<span class="unit">USDC</span></p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">賞金プール</p>
+          <p class="stat-value">3,000<span class="unit">USDC</span></p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">キャンペーン期間</p>
+          <p class="stat-value plain">2026年7月27日 〜 8月7日 23:59 <span class="cell-sub">UTC</span></p>
+        </div>
+      </div>
+
+      <div class="hero-cta-row">
+        <a class="btn btn-primary" href="https://app.txflow.com/r/TXJPDAO" target="_blank" rel="noopener noreferrer">今すぐ参加する <span class="btn-arrow" aria-hidden="true">→</span></a>
+        <p class="hero-note">指定されたリファラルリンク経由で参加し、条件を達成すると報酬を獲得できます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Overview ===== -->
+  <section aria-labelledby="overview-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">OVERVIEW</p>
+        <h2 class="section-title" id="overview-title">キャンペーン概要</h2>
+        <p class="section-sub">参加条件と報酬カウントの基本ルールをまとめました。まずはここをチェック。</p>
+      </div>
+      <div class="overview-grid">
+        <div class="ov-card reveal">
+          <p class="ov-num">01</p>
+          <h3 class="ov-title">最低入金額は<br>50 USDC</h3>
+          <p class="ov-text">参加資格を得るには、50 USDC以上の入金が必要です。</p>
+        </div>
+        <div class="ov-card reveal">
+          <p class="ov-num">02</p>
+          <h3 class="ov-title">対象は先物テイカー<br>取引量</h3>
+          <p class="ov-text">キャンペーン期間中の先物テイカー取引量が報酬の判定対象になります。</p>
+        </div>
+        <div class="ov-card reveal">
+          <p class="ov-num">03</p>
+          <h3 class="ov-title">1分以上保有した<br>ポジションが対象</h3>
+          <p class="ov-text">1分以上保有されたポジションの取引量のみが有効としてカウントされます。</p>
+        </div>
+        <div class="ov-card reveal">
+          <p class="ov-num">04</p>
+          <h3 class="ov-title">最も高いティアのみ<br>適用</h3>
+          <p class="ov-text">報酬は達成した中で最も高いティアのみが適用され、重複受け取りはできません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Reward Structure ===== -->
+  <section class="section-alt" aria-labelledby="reward-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">REWARD STRUCTURE</p>
+        <h2 class="section-title" id="reward-title">報酬ストラクチャー</h2>
+        <p class="section-sub">達成した取引量に応じて報酬ティアが決まります。最上位のTier 5では300 USDCを獲得できます。</p>
+      </div>
+
+      <div class="reward-wrap reveal">
+        <table class="rewards">
+          <thead>
+            <tr>
+              <th scope="col">ティア</th>
+              <th scope="col">入金条件</th>
+              <th scope="col">先物テイカー取引量</th>
+              <th scope="col">報酬</th>
+              <th scope="col">報酬タイプ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tier-top">
+              <td class="td-tier"><span class="tier-name">Tier 5</span><span class="tier-top-badge">MAX REWARD</span></td>
+              <td data-label="入金条件"><span class="cell-sub">50 USDC以上</span></td>
+              <td data-label="先物テイカー取引量"><span class="vol-num">4,000,000</span></td>
+              <td data-label="報酬"><span class="reward-amount">$300</span></td>
+              <td data-label="報酬タイプ"><span class="type-badge type-usdc">USDC</span></td>
+            </tr>
+            <tr>
+              <td class="td-tier"><span class="tier-name">Tier 4</span></td>
+              <td data-label="入金条件"><span class="cell-sub">50 USDC以上</span></td>
+              <td data-label="先物テイカー取引量"><span class="vol-num">1,000,000</span></td>
+              <td data-label="報酬"><span class="reward-amount">$80</span></td>
+              <td data-label="報酬タイプ"><span class="type-badge type-usdc">USDC</span></td>
+            </tr>
+            <tr>
+              <td class="td-tier"><span class="tier-name">Tier 3</span></td>
+              <td data-label="入金条件"><span class="cell-sub">50 USDC以上</span></td>
+              <td data-label="先物テイカー取引量"><span class="vol-num">500,000</span></td>
+              <td data-label="報酬"><span class="reward-amount">$40</span></td>
+              <td data-label="報酬タイプ"><span class="type-badge type-usdc">USDC</span></td>
+            </tr>
+            <tr>
+              <td class="td-tier"><span class="tier-name">Tier 2</span></td>
+              <td data-label="入金条件"><span class="cell-sub">50 USDC以上</span></td>
+              <td data-label="先物テイカー取引量"><span class="vol-num">120,000</span></td>
+              <td data-label="報酬"><span class="reward-amount">$10</span></td>
+              <td data-label="報酬タイプ"><span class="type-badge type-fc">Fee Credits</span></td>
+            </tr>
+            <tr>
+              <td class="td-tier"><span class="tier-name">Tier 1</span></td>
+              <td data-label="入金条件"><span class="cell-sub">50 USDC以上</span></td>
+              <td data-label="先物テイカー取引量"><span class="vol-num">5,000</span></td>
+              <td data-label="報酬"><span class="reward-amount">$2</span></td>
+              <td data-label="報酬タイプ"><span class="type-badge type-fc">Fee Credits</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Fee Credits ===== -->
+  <section aria-labelledby="fc-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">FEE CREDITS</p>
+        <h2 class="section-title" id="fc-title">Fee Creditsとは</h2>
+      </div>
+      <div class="fc-card reveal">
+        <div class="fc-icon" aria-hidden="true">FC</div>
+        <div>
+          <h3>取引手数料の相殺に使えるクレジット</h3>
+          <p>Fee Creditsは、取引手数料の相殺に使えるクレジットです。14日間有効で、取引手数料の100%相殺に使用できますが、出金はできません。</p>
+          <div class="fc-points">
+            <span class="fc-point">有効期間 14日間</span>
+            <span class="fc-point">取引手数料を100%相殺</span>
+            <span class="fc-point">出金は不可</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Campaign Rules ===== -->
+  <section class="section-alt" aria-labelledby="rules-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">CAMPAIGN RULES</p>
+        <h2 class="section-title" id="rules-title">キャンペーンルール</h2>
+      </div>
+      <div class="rule-card reveal">
+        <ul class="rule-list">
+          <li>参加するには、指定されたリファラルリンクまたはコード経由で登録する必要があります。</li>
+          <li>参加資格を得るには、最低50 USDCを入金する必要があります。</li>
+          <li>キャンペーン期間中に、必要な有効先物テイカー取引量を達成する必要があります。</li>
+          <li>少なくとも1分以上保有されたポジションの取引量のみがカウントされます。</li>
+          <li>各ユーザーは、達成した中で最も高い報酬ティアのみを受け取れます。報酬の重複受け取りはできません。</li>
+          <li>賞金プールの上限は3,000 USDCです。対象報酬の合計が3,000 USDCを超えた場合、有効Taker取引量が多い順に、賞金プールがなくなるまで配布されます。</li>
+          <li>Task 1とTask 2の報酬はFee Creditsで支払われます。Task 1は条件を満たした先着100名までが対象です。</li>
+          <li>Task 3以上の報酬はUSDCで支払われます。</li>
+          <li>報酬は、データ確認およびリスクレビュー完了後に配布されます。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Terms ===== -->
+  <section class="terms" aria-labelledby="terms-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">TERMS &amp; CONDITIONS</p>
+        <h2 class="section-title" id="terms-title">利用規約</h2>
+      </div>
+      <div class="rule-card reveal">
+        <ul class="rule-list">
+          <li>すべての参加者は、TxFlowの利用規約を遵守する必要があります。</li>
+          <li>対象となるのは手動取引のみです。Bot取引、自動化ツール、ウォッシュトレード、複数アカウントの不正利用、その他不審な行為は失格となる可能性があります。</li>
+          <li>各ユーザーが参加できるのは1アカウントのみです。複数アカウントでの参加は違反とみなされ、関連するすべての報酬は没収されます。</li>
+          <li>TxFlowは、事前通知なしに本キャンペーンを変更、一時停止、または終了する権利を有します。</li>
+          <li>本規約の解釈はTxFlowが最終的に判断します。紛争が発生した場合も、TxFlowの判断が最終かつ拘束力を持ちます。</li>
+          <li>本キャンペーンは、投資、金融、法律、会計、税務に関する助言ではなく、またデジタル資産の売買の勧誘やオファーでもありません。</li>
+          <li>デジタル資産取引には市場変動性があり、高いリスクを伴います。報酬、リターン、取引結果は保証されません。</li>
+          <li>TxFlowは、本キャンペーンへの参加によって発生した損失、損害、利益の喪失について責任を負いません。</li>
+          <li>サポートが必要な場合は、Discord経由でお問い合わせください。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Final CTA ===== -->
+  <section class="final-cta" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 id="cta-title" class="reveal">Welcome <span class="accent">Campaign</span>に参加する</h2>
+      <p class="reveal">取引タスクを達成で報酬を獲得！</p>
+      <div class="reveal">
+        <a class="btn btn-primary" href="https://app.txflow.com/r/TXJPDAO" target="_blank" rel="noopener noreferrer">キャンペーンに参加する <span class="btn-arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <nav class="footer-links" aria-label="フッターリンク">
+      <a href="https://discord.gg/txflow" target="_blank" rel="noopener noreferrer">TxFlow Discord</a>
+      <a href="https://txflow.com/terms" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+      <a href="https://app.txflow.com/r/TXJPDAO" target="_blank" rel="noopener noreferrer">Join Campaign</a>
+    </nav>
+    <p class="footer-text">本キャンペーンは TxFlow と boarding bridge の共同キャンペーンです。</p>
+    <p class="footer-disclaimer">Digital asset trading involves risk. Please trade responsibly.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var header = document.getElementById("siteHeader");
+    var onScroll = function () {
+      header.classList.toggle("scrolled", window.scrollY > 10);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var targets = document.querySelectorAll(".reveal");
+    if (reduced || !("IntersectionObserver" in window)) {
+      targets.forEach(function (el) { el.classList.add("visible"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    targets.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
